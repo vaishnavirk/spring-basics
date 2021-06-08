@@ -1,13 +1,15 @@
 pipeline {
-    agent any 
-    tools
-    { 
-        jdk 'JDK11' 
+    agent any
+     tools {
+        jdk 'Java'
     }
     stages {
         stage('build') {
             steps {
                 sh 'mvn --version'
+	        sh 'mvn clean compile'
+	        sh 'mvn test'
+	        
             }
         }
     }
